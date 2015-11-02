@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Functional tests for the bakery_user module
+ */
+
+class BakeryUserTests extends DrupalWebTestCase {
+    /**
+     * Metadata about Greeting test case
+     */
+    public static function getInfo() {
+        return array(
+            'name' => 'Bakery User Tests',
+            'description' => 'Tests for the Bakery User module',
+            'group' => 'Cameron\'s Bakery Tests',
+        );
+    } //end getInfo()
+
+
+    /**
+     * Perform any setup tasks for the test cases
+     */
+    public function setUp() {
+        parent::setUp(array('bakery_user')); //machine readable name of the module
+    } //end setUp()
+
+
+    /**
+     * Tests
+     */
+    public function testGreetingWelcome() {
+        $this->drupalGet('welcome'); //navigate to the url created by the greeting module
+        $this->assertText('Welcome to Cameron\'s Bakery!', 'The text on the page is correct.');
+    } //end testGreetingWelcome()
+
+
+} //end GreetingTests
